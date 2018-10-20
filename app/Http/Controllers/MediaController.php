@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Post;
 use App\Image;
@@ -12,7 +13,8 @@ class MediaController extends Controller
 
     function index(){
 
-      $posts = Post::all();
+      // $posts = Post::all();
+      $posts = Post::latest()->simplePaginate(3);
 
       return view('index')->with('posts' , $posts );
     }
@@ -48,7 +50,8 @@ class MediaController extends Controller
       $title = $request->input('title');
       $body = $request->input('body');
 
-      $user_id = 1 ; //Dummy
+      $user = Auth::user();
+      $user_id = $user->id ;
 
       $post = new Post();
       $post->user_id = $user_id ;
@@ -56,7 +59,6 @@ class MediaController extends Controller
       $post->body = $body ;
       $post->save();
 
-      // $request->file('image')->store('public/images');
       if( $request->has('image') && $request->file('image')->isValid() ){
         $image = new Image();
         $image->user_id = $user_id ;//Dummy

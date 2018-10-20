@@ -16,10 +16,8 @@ Route::post('/post' , 'MediaController@post');
 Route::get('/post/{id}' , 'MediaController@detail');
 Route::get('/create' , 'MediaController@createPost');
 
+Route::get('/logout' , 'UserController@logout');
+
+
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
