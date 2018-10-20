@@ -34,6 +34,12 @@ class LoginController extends Controller
       return '/' ;
     }
 
+    public function showLoginForm()
+    {
+        session(['url.intended' => $_SERVER['HTTP_REFERER']]);
+        return view('auth.login');
+    }
+
     public function username()
     {
       return 'name';
