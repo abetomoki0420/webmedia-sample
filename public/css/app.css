@@ -1,4 +1,11 @@
 li{
   list-style: none;
-  padding:3px; 
+  padding:3px;
+}
+
+img{
+  max-height: 100% ;
+  max-width: 100% ;
+  height: auto ;
+  width : auto ;
 }

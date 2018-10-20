@@ -73,4 +73,38 @@ class MediaController extends Controller
     function resultPost(){
       return view('resultPost');
     }
+
+    function editPost( $id ){
+      $post = Post::find( $id );
+
+      return view('editPost')->with('post' , $post );
+    }
+
+    function edit( Request $request ){
+      $post_id = $request->input('post_id');
+      $editted_title = $request->input('title');
+      $editted_body = $request->input('body');
+      $post = Post::find( $post_id );
+      $post->title = $editted_title ;
+      $post->body = $editted_body;
+      $post->save();
+
+      return redirect('/resultEdit');
+    }
+
+    function resultEdit(){
+      return view('resultEdit');
+    }
+
+    function deletePost( $id ){
+      $post = Post::find($id);
+
+      $post->delete();
+
+      return redirect('/resultDelete');
+    }
+
+    function resultDelete(){
+      return view('resultDelete');
+    }
 }

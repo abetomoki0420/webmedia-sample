@@ -16,8 +16,16 @@ Route::post('/post' , 'MediaController@post');
 Route::get('/post/{id}' , 'MediaController@detail');
 Route::get('/create' , 'MediaController@createPost');
 Route::get('/resultPost' , 'MediaController@resultPost');
+Route::get('/post/{id}/edit' , 'MediaController@editPost');
+Route::post('/edit' , 'MediaController@edit');
+Route::get('/resultEdit' , 'MediaController@resultEdit');
+Route::get('/post/{id}/delete' , 'MediaController@deletePost');
+Route::get('/resultDelete' , 'MediaController@resultDelete');
+
+
 
 Route::get('/logout' , 'UserController@logout');
+
 
 
 Auth::routes();
