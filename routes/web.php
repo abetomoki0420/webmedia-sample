@@ -15,6 +15,7 @@ Route::get('/' , 'MediaController@index');
 Route::post('/post' , 'MediaController@post');
 Route::get('/post/{id}' , 'MediaController@detail');
 Route::get('/create' , 'MediaController@createPost');
+Route::get('/resultPost' , 'MediaController@resultPost');
 
 Route::get('/logout' , 'UserController@logout');
 

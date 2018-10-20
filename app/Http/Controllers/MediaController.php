@@ -13,8 +13,7 @@ class MediaController extends Controller
 
     function index(){
 
-      // $posts = Post::all();
-      $posts = Post::latest()->simplePaginate(3);
+      $posts = Post::latest()->simplePaginate(10);
 
       return view('index')->with('posts' , $posts );
     }
@@ -33,7 +32,6 @@ class MediaController extends Controller
           ->with(['post' => $post ,
                   'imageurl' => null] );
       }
-
     }
 
     function createPost(){
@@ -61,7 +59,7 @@ class MediaController extends Controller
 
       if( $request->has('image') && $request->file('image')->isValid() ){
         $image = new Image();
-        $image->user_id = $user_id ;//Dummy
+        $image->user_id = $user_id ;
         $image->post_id = $post->id ;
         $image_name = $post->id . ".jpg" ;
         $image->name = $image_name ;
@@ -69,6 +67,11 @@ class MediaController extends Controller
         Storage::putFileAs('public/images' , $request->file('image') , $image_name );
       }
 
+      // return view('resultPost');
+      return redirect('/resultPost');
+    }
+
+    function resultPost(){
       return view('resultPost');
     }
 }
