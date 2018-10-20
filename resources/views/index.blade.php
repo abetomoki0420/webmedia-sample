@@ -15,7 +15,7 @@
     </div>
 @endsection
 @section('footer')
-<div class="siimple-footer siimple-footer--primary siimple-footer--fluid">
-  {{ $posts->links() }}
+<div class="siimple--text-center">
+  {{ $posts->onEachSide(3)->links() }}
 </div>
 @endsection

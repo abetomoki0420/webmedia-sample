@@ -10,24 +10,24 @@
       <label class="siimple-label">タイトル</label>
       <input class="siimple-input siimple-input--fluid" type="text" name="title" value="{{ old('title') }}" ></input>
       @if( $errors->has('title'))
-        <span class="error">{{ $errors->first('title') }}</span>
+        <span class="siimple--color-error">{{ $errors->first('title') }}</span>
       @endif
     </div>
     <div class="siimple-field">
       <label class="siimple-field-label">メッセージ</label>
       <textarea class="siimple-textarea siimple-textarea--fluid" name="body" rows="5">{{old('body')}}</textarea>
       @if( $errors->has('body'))
-        <span class="error">{{ $errors->first('body') }}</span>
+        <span class="siimple--color-error">{{ $errors->first('body') }}</span>
       @endif
     </div>
     <div class="siimple-field">
-      <input type="file" name="image" ></input>
+      <input type="file" name="image" accept=".jpg,.png,.gif" ></input>
       @if( $errors->has('image'))
-        <span class="error">{{ $errors->first('image') }}</span>
+        <span class="siimple--color-error">{{ $errors->first('image') }}</span>
       @endif
     </div>
     <div class="siimple-field">
-      <input class="siimple-btn" type="submit" value="投稿する"></input>
+      <input class="siimple-btn siimple-btn--primary" type="submit" value="投稿する"></input>
     </div>
   </form>
 @endsection

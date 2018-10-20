@@ -13,7 +13,7 @@ class MediaController extends Controller
 
     function index(){
 
-      $posts = Post::latest()->simplePaginate(10);
+      $posts = Post::latest()->paginate(8);
 
       return view('index')->with('posts' , $posts );
     }
@@ -67,7 +67,6 @@ class MediaController extends Controller
         Storage::putFileAs('public/images' , $request->file('image') , $image_name );
       }
 
-      // return view('resultPost');
       return redirect('/resultPost');
     }
 

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>@section('title')</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.1.1/dist/siimple.min.css">
-    <link rel="stylesheet" href="{{asset('/css/index.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/app.css')}}">
   </head>
   <body>
     <div class="siimple-navbar siimple-navbar--primary siimple-navbar--fluid">
